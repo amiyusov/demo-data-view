@@ -1,0 +1,36 @@
+<template name="paginator">
+  <!-- Pagination -->
+    {{#if state$showItemsPerPageSelect}}
+      <div class="crmtronic-count-selector">
+
+          {{>simpleInputForm
+            notClearOnSubmit=true
+            value=state$itemsPerPage
+            action=action$changeItemsPerPage}}
+
+      </div>
+    {{/if}}
+    <div class="crmtronic-pager">
+      <ol class="pager-group">
+        <li class="pager-group-item">
+          {{state$current}} of {{state$totalItemsNumber}}
+        </li>
+        {{#unless state$isFirstPage}}
+          <li class="pager-group-item js-go-left">
+            <i class="icon icon-chevron-thin-left"
+               data-toggle="tooltip"
+               data-placement="auto"
+               title="Back"></i>
+          </li>
+        {{/unless}}
+        {{#unless state$isLastPage}}
+          <li class="pager-group-item js-go-right">
+            <i class="icon icon-chevron-thin-right"
+               data-toggle="tooltip"
+               data-placement="auto"
+               title="Forward"></i>
+          </li>
+        {{/unless}}
+      </ol>
+    </div>
+</template>

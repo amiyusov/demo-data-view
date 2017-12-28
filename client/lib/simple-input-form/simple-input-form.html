@@ -1,0 +1,23 @@
+<!-- attributes: itemId [fieldType] [popupContext] [value] [label] [action] [notClearOnSubmit]-->
+<template name="simpleInputForm">
+  <form autocomplete="off" class="input-field">
+    <input autocomplete="off" type="{{#if fieldType}}{{fieldType}}{{else}}text{{/if}}"
+           name="value"
+           id="sfc-{{itemId}}"
+           value="{{value}}"
+					 class="{{#unless iconButton}}ok-btn-input{{/unless}}">
+    <label for="sfc-{{itemId}}" class="{{active}}">
+      {{label}}
+    </label>
+		{{#if iconButton}}
+			<button type="submit" class="input-btn"
+							data-toggle="tooltip" data-placement="bottom" title={{#if submitTooltipData}}{{submitTooltipData}}{{else}}"SAVE"{{/if}}>
+				<i class="icon {{#if submitIconClass}}{{submitIconClass}}{{else}}icon-send{{/if}}"></i>
+			</button>
+		{{else}}
+			<button class="btn btn-positive ok-btn">
+				"OK"
+			</button>
+		{{/if}}
+  </form>
+</template>

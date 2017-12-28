@@ -1,0 +1,16 @@
+<head>
+  <title>browser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<div class="main-container global" id="content">
+  <!--{> render component="deed-browser"}}-->
+</div>
+
+</body>
+
+<template name="mainComponentLayout">
+  {{> Template.dynamic template="render" data=componentData}}
+</template>

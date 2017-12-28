@@ -1,0 +1,169 @@
+<template name="deedBrowser">
+  <div class="table-view-header p-b-0 inner-container">
+    <!-- Table name -->
+    <div class="inner-container">
+      <div class="col-m-6">
+        <h1 class="table-name block m-b-half m-r-0">
+          <div class="flex-container flex-container-wrap">
+            <div class="flex-item m-r-half">
+              {{state$tableLabel}}
+            </div>
+            <div class="flex-item">
+              <span class="wht-nwp va-top">total count: {{state$totalItemsCount}} </span>
+            </div>
+          </div>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Container to use more button -->
+  <div class="label-box-s">
+    ( {{state$currentItemsCount}} )
+  </div>
+
+  <div class="pos-rel">
+
+
+    <div class="material-table m-b-2">
+
+      <!-- More action for table clickable -->
+      <div class="more-button more-button-light more-right js-hide-tbody"
+           data-toggle="tooltip"
+           data-placement="bottom"
+           title="More..."> <!-- Need to be Fixed -->
+        <i class="material-icons">&#xE8B8;</i>
+      </div>
+      <!-- /More action for table clickable -->
+
+      <!-- Table responsive container -->
+      <div class="table-responsive">
+        <!-- Bo list table -->
+
+        <table class="table grand-table table-bordered table-striped table-hover
+                      ">
+          <!-- To hide any tr, th or td use class .hidden -->
+          <!-- Head of table -->
+          <thead>
+          <!-- Head Row -->
+          <tr>
+            {{#each state$columnsList}}
+              {{#if visible}}
+                <td draggable="true" class="js-draggable-column">
+                    <span class="gt-th-data {{sortClass . state$sort}}"
+                          data-toggle="tooltip"
+                          data-placement="bottom"
+                          title="Sort by">
+                      {{label}}
+                    </span>
+                </td>
+              {{/if}}
+            {{/each}}
+          </tr>
+
+          <!-- /Head Row -->
+          </thead>
+          <!-- /Head of table -->
+          <!-- Table body -->
+          <tbody class="js-tronic-table-tbody">
+
+          <tr>
+            {{#each state$columnsList}}
+              {{#if visible}}
+
+                <!--<div class="tronictable-fast-filter">-->
+                  <td class="tronic-table-data-td">
+                    {{>simpleInputForm
+                      name=name
+                      iconButton=true
+                      submitIconClass="icon-search"
+                      notClearOnSubmit=true
+                      action=action$setFilter}}
+                  </td>
+                <!--</div>-->
+              {{/if}}
+            {{/each}}
+          </tr>
+
+          {{#if Template.subscriptionsReady}}
+            <!-- Row -->
+            {{#each state$displayData}}
+              <tr>
+                {{#each state$columnsList}}
+                  {{#if visible}}
+                    <td class="tronic-table-data-td">
+                      {{getProperty .. name}}
+                    </td>
+                  {{/if}}
+                {{/each}}
+              </tr>
+            {{/each}}
+            <!-- /Row -->
+          {{/if}}
+          </tbody>
+          <!-- /Table body -->
+        </table>
+        <!-- /Bo list table -->
+        {{#unless Template.subscriptionsReady}}
+          <!-- Spinner center -->
+          <div class="m-t-1 m-b-1">
+            <div class="progress progress-positive">
+              <div class="indeterminate"></div>
+            </div>
+          </div>
+          <!-- /Spinner center -->
+        {{/unless}}
+      </div>
+      <!-- Table responsive container -->
+
+      <div class="table-row-selector js-columns-selector hidden">
+        <h2>Columns visibility</h2>
+        <div class="table-row-selector-wrapper">
+          {{#each state$columnsList}}
+            <!--{#if nonStaticColumn}}-->
+              <div class="table-row-selector-item">
+                <div class="input-field">
+                  <input autocomplete="off"
+                         type="checkbox"
+                         name="{{name}}"
+                         id="is-{{name}}-column-visible"
+                         class="js-col-selector"
+                    {{checkedAttr visible}}>
+                  <label for="is-{{name}}-column-visible">{{label}}</label>
+                </div>
+              </div>
+            <!--{/if}}-->
+          {{/each}}
+        </div>
+
+      </div>
+
+      <div class="table-bottom-navi">
+        <div class="inner-container">
+          <div class="col-m-8">
+          </div>
+          <div class="col-m-4 last">
+            {{>render component="paginator"
+              action=action$setPagination
+              page=state$pageNumber
+              itemsPerPage=state$pageSize
+              totalItemsNumber=state$totalFilteredItemsCount
+              showItemsPerPageSelect=true}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="tableRow">
+  <tr>
+
+    {{#each columns}}
+      <td class="tronic-table-data-td">
+          {{cellContent . ../item ../type}}
+      </td>
+    {{/each}}
+  </tr>
+</template>

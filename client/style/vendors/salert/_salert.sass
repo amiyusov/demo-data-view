@@ -1,0 +1,25 @@
+/// S-alert meteor plugin styles
+.s-alert-box
+  font-family: "Roboto", sans-serif
+  font-size: $regular-text
+  font-weight: $fw-regular
+  z-index: 99999
+  @extend .z-depth-1
+  +transition(box-shadow 0.2s)
+  &:hover
+    @extend .z-depth-2
+  a
+    font-weight: $fw-bold
+/// Colors
+.s-alert-info
+  background: $blue
+  color: $white
+.s-alert-success
+  background: $teal
+  color: $white
+.s-alert-warning
+  background: $orange
+  color: $white
+.s-alert-error
+  background: $red
+  color: $white

@@ -1,0 +1,304 @@
+////Select2 material theme
+//
+//// Import Google Roboto font
+//@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700)
+//
+//// Import custom icon font
+//@font-face
+//  font-family: 'select2'
+//  src:url('../font/select2/select2.eot?-a1cmqv')
+//  src:url('../font/select2/select2.eot?#iefix-a1cmqv') format('embedded-opentype'), url('../font/select2/select2.ttf?-a1cmqv') format('truetype'), url('../font/select2/select2.woff?-a1cmqv') format('woff'), url('../font/select2/select2.svg?-a1cmqv#icomoon') format('svg')
+//  font-weight: normal
+//  font-style: normal
+//
+///// Icons
+//[class^="icon-"], [class*=" icon-"]
+//  font-family: 'select2'
+//  speak: none
+//  font-style: normal
+//  font-weight: normal
+//  font-variant: normal
+//  text-transform: none
+//  line-height: 1
+//
+//  -webkit-font-smoothing: antialiased
+//  -moz-osx-font-smoothing: grayscale
+//
+//.icon-search:before
+//  content: "\e62b"
+//
+//
+//// Variables
+//$sel2-font-size:                   14px
+//$sel2-font-family:                 "Roboto", sans-serif
+//$sel2-main-height:                 40px
+//$sel2-line-height:                 16px
+//$sel2-border-color:                rgba(0,0,0,.22)
+//$sel2-border-color-active:         #4DB6AC
+//$sel2-color-highlight:             #428BCA
+//$sel2-bgc:                         transparent
+//
+//$select2-text-light-theme:         #212121
+//
+//$sel2-error-color:                 #EC3E24
+//$sel2-success-color:               #43A047
+//$sel2-warning-color:               #FF6900
+//
+//$sel2-font-icon:                   'select2'
+//$sel2-font-arrow-down:             '\e62d'
+//$sel2-font-arrow-up:               '\e62e'
+//$sel2-icon-size:                   12px
+//
+//$sel2-arrow-wrapper-width:         30px
+//
+//.material-select2-container
+//  font-family: $sel2-font-family
+//  width: 100%
+//  .select2-choice
+//    height: $sel2-main-height
+//    line-height: $sel2-main-height
+//    background-image: none
+//    border: none
+//    border-radius: 0
+//    border-bottom: 1px solid $sel2-border-color
+//    outline: none
+//    margin: 0 0 .5rem 0
+//    padding: 0
+//    > .select2-chosen
+//      line-height: $sel2-main-height
+//      font-size: $sel2-font-size
+//      // margin-right: 34px
+//    .select2-arrow
+//      background-image: none
+//      background-color: $sel2-bgc
+//      width: 20px
+//      border-left: none
+//      b
+//        display: none
+//      &:before
+//        position: absolute
+//        width: 20px
+//        content: '\e62d'
+//        font-family: 'select2'
+//        font-size: $sel2-font-size
+//        text-align: center
+//        line-height: $sel2-main-height
+//  &.select2-dropdown-open
+//    .select2-choice
+//      background-color: $sel2-bgc
+//      .select2-arrow
+//        &:before
+//          content: '\e62e'
+//    &.select2-container-active .select2-choice
+//      box-shadow: none
+//    &.select2-drop-above .select2-choice
+//      background-image: none
+//      border-top: none
+//      border-left: none
+//      border-right: none
+//      border-radius: 0
+//      border-bottom: 1px solid $sel2-border-color
+//  &.select2-container-active .select2-choice
+//    // border-color: $sel2-border-color
+//    box-shadow: none
+//  .select2-drop-active
+//    border-color: $sel2-border-color
+//  &.select2-container-multi
+//    .select2-choices
+//      background-image: none
+//      padding-top: 4px
+//      border-top: none
+//      border-right: none
+//      border-left: none
+//      border-bottom: 1px solid $sel2-border-color
+//      transition: all .2s
+//      .select2-search-choice
+//        position: relative
+//        border: none
+//        background-image: none
+//        font-size: 12px
+//        background-color: #E8ECF1
+//        padding-top: 4px
+//        padding-bottom: 4px
+//        padding-left: 20px
+//        line-height: $sel2-line-height
+//        margin-left: 3px
+//        margin-bottom: 0
+//        box-shadow: none
+//        border-radius: 2px
+//        transition: all .2s
+//        &:before
+//          position: absolute
+//          top: 4px
+//          left: 5px
+//          font-family: 'select2'
+//          content: '\e621'
+//          z-index: 5
+//          font-size: 10px
+//          opacity: 0.5
+//        &:hover
+//          box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.20), 0px 1px 3px 0px rgba(0,0,0,0.10)
+//          &:before
+//            opacity: 0.9
+//      .select2-search-field input
+//        font-family: $sel2-font-family
+//        font-size: 14px
+//        line-height: $sel2-line-height
+//        border: none !important
+//        box-shadow: none !important
+//        padding-bottom: 0
+//    &.select2-container-active
+//      .select2-choices
+//        box-shadow: none
+//        border-bottom: 1px solid $sel2-border-color-active
+//        box-shadow: 0 1px 0 0 $sel2-border-color-active
+//      &.select2-dropdown-open .select2-choices
+//        border-radius: 0
+//      &.select2-drop-above .select2-choices
+//        border-radius: 0
+//  .select2-search-choice-close
+//    top: 5px
+//    background: none
+//    z-index: 10
+//
+//.material-select2-drop
+//  font-family: $sel2-font-family
+//  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+//  border: none
+//  border-radius: 2px
+//  .select2-search
+//    padding-top: 5px
+//    position: relative
+//    input
+//      background-color: $sel2-bgc
+//      background-image: none
+//      border-color: rgba(0, 0, 0, 0.3)
+//      font-size: 14px
+//      padding: 10px 20px 10px 5px
+//      box-sizing: border-box
+//    &:after
+//      position: absolute
+//      font-family: 'select2'
+//      content: '\e62b'
+//      top: 10px
+//      right: $sel2-font-size
+//      font-size: 20px
+//      opacity: .5
+//  .select2-results
+//    font-size: $sel2-font-size
+//    margin: 0
+//    padding: 0
+//    li
+//      line-height: $sel2-line-height
+//      padding: 10px 16px
+//    .select2-highlighted
+//      background-color: lighten(#607D8C, 50%)
+//      color: $select2-text-light-theme
+//  &.select2-drop-above
+//    border-radius: 2px
+//    outline: none
+//    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+//    .select2-search input
+//      margin-top: 0
+//    &.select2-drop-active
+//      border: none
+//
+//
+//.material-select2-container.select2-error
+//  .select2-choice
+//    border-color: #cc0000
+//    background-color: $sel2-bgc
+//    box-shadow: none
+//    color: #333333
+//    .select2-arrow
+//      border-left-color: #cc0000
+//      background-color: $sel2-bgc
+//      color: #333333
+//  .select2-default .select2-chosen
+//    color: rgba(51, 51, 51, 0.5)
+//  &.select2-container-multi .select2-choices .select2-search-choice
+//    border-color: #b30000
+//    background-color: $sel2-bgc
+//    color: #333333
+//    &:before
+//      color: rgba(51, 51, 51, 0.5)
+//  &.select2-container-active .select2-choice
+//    border-color: #a80000
+//    .select2-arrow
+//      border-left-color: #a80000
+//
+//.material-select2-drop.select2-error
+//  border-color: #a80000
+//  background-color: $sel2-bgc
+//  .select2-search input
+//    border-color: #a80000
+//  .select2-results
+//    color: #333333
+//  .select2-highlighted
+//    background-color: #cccccc
+//
+//.material-select2-container.select2-success
+//  .select2-choice
+//    border-color: #3c763d
+//    background-color: $sel2-bgc
+//    box-shadow: none
+//    color: #333333
+//    .select2-arrow
+//      border-left-color: #3c763d
+//      background-color: $sel2-bgc
+//      color: #333333
+//  .select2-default .select2-chosen
+//    color: rgba(51, 51, 51, 0.5)
+//  &.select2-container-multi .select2-choices .select2-search-choice
+//    border-color: #336534
+//    background-color: $sel2-bgc
+//    color: #333333
+//    &:before
+//      color: rgba(51, 51, 51, 0.5)
+//  &.select2-container-active .select2-choice
+//    border-color: #305e31
+//    .select2-arrow
+//      border-left-color: #305e31
+//
+//.material-select2-drop.select2-success
+//  border-color: #305e31
+//  background-color: $sel2-bgc
+//  .select2-search input
+//    border-color: #305e31
+//  .select2-results
+//    color: #333333
+//  .select2-highlighted
+//    background-color: #cccccc
+//
+//.material-select2-container.select2-warning
+//  .select2-choice
+//    border-color: #c0753b
+//    background-color: $sel2-bgc
+//    box-shadow: none
+//    color: #333333
+//    .select2-arrow
+//      border-left-color: #c0753b
+//      background-color: $sel2-bgc
+//      color: #333333
+//  .select2-default .select2-chosen
+//    color: rgba(51, 51, 51, 0.5)
+//  &.select2-container-multi .select2-choices .select2-search-choice
+//    border-color: #ac6935
+//    background-color: $sel2-bgc
+//    color: #333333
+//    &:before
+//      color: rgba(51, 51, 51, 0.5)
+//  &.select2-container-active .select2-choice
+//    border-color: #a56433
+//    .select2-arrow
+//      border-left-color: #a56433
+//
+//.material-select2-drop.select2-warning
+//  border-color: #a56433
+//  background-color: $sel2-bgc
+//  .select2-search input
+//    border-color: #a56433
+//  .select2-results
+//    color: #333333
+//  .select2-highlighted
+//    background-color: #cccccc
